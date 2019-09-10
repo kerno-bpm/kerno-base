@@ -18,6 +18,7 @@ plugins {
     id 'org.springframework.boot' version '2.1.8.RELEASE'
     id 'io.spring.dependency-management' version '1.0.8.RELEASE'
     id 'java'
+    id 'maven-publish'
 }
 
 group = 'com.kerno'
@@ -26,7 +27,6 @@ sourceCompatibility = '1.8'
 
 allprojects {
     repositories {
-        maven { url "https://jitpack.io" }
         maven { url "http://repo1.maven.org/maven2/" }
     }
 }
@@ -36,6 +36,20 @@ ext {
     set('jjwtVersion', '0.9.1')
 }
 
+publishing {
+    publications {
+        myLibrary(MavenPublication) {
+            from components.java
+        }
+    }
+
+    repositories {
+        maven {
+            name = 'myRepo'
+            url = "file://${buildDir}/repo"
+        }
+    }
+}
 dependencies {
     compileOnly 'org.springframework.boot:spring-boot-starter-data-jpa'
     compileOnly 'org.springframework.boot:spring-boot-starter-web'
@@ -48,3 +62,4 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.security:spring-security-test'
 }
+
