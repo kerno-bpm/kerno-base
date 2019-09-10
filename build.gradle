@@ -16,10 +16,11 @@ buildscript {
 
 plugins {
     id 'org.springframework.boot' version '2.1.8.RELEASE'
-    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
     id 'java'
     id 'maven-publish'
 }
+apply plugin: 'maven'
+apply plugin: 'io.spring.dependency-management'
 
 group = 'com.kerno'
 version = '0.0.1-SNAPSHOT'
@@ -28,7 +29,6 @@ sourceCompatibility = '1.8'
 allprojects {
     repositories {
         maven { url "http://repo1.maven.org/maven2/" }
-        maven { url "http://repo.spring.io/libs-release" }
     }
 }
 
