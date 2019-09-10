@@ -45,18 +45,18 @@ publishing {
 
     repositories {
         maven {
-            name = 'myRepo'
-            url = "file://${buildDir}/repo"
+            name = 'kerno-base'
+            url = "file://${buildDir}/kerno-base"
         }
     }
 }
 dependencies {
-    compileOnly 'org.springframework.boot:spring-boot-starter-data-jpa'
-    compileOnly 'org.springframework.boot:spring-boot-starter-web'
-    compileOnly 'net.sf.dozer:dozer:5.5.1'
-    compileOnly "org.projectlombok:lombok:${lombokVersion}"
-    compileOnly "org.springframework.data:spring-data-envers"
-    compileOnly "org.springframework.boot:spring-boot-starter-security:2.1.4.RELEASE"
+    compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'net.sf.dozer:dozer:5.5.1'
+    compile "org.projectlombok:lombok:${lombokVersion}"
+    compile "org.springframework.data:spring-data-envers"
+    compile "org.springframework.boot:spring-boot-starter-security:2.1.4.RELEASE"
     implementation "io.jsonwebtoken:jjwt:${jjwtVersion}"
     annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
