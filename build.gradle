@@ -37,8 +37,8 @@ ext {
 }
 
 dependencies {
-    compile 'org.springframework.boot:spring-boot-starter-data-jpa'
-    compile 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
     compile 'net.sf.dozer:dozer:5.5.1'
     compile "org.projectlombok:lombok:${lombokVersion}"
     compile "org.springframework.data:spring-data-envers"
