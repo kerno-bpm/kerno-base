@@ -26,6 +26,7 @@ sourceCompatibility = '1.8'
 
 repositories {
 	mavenCentral()
+	maven { url "http://repo1.maven.org/maven2/" }
 }
 ext {
 	set('lombokVersion', '1.18.6')
