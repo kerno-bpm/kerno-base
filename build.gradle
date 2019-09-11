@@ -29,7 +29,7 @@ sourceCompatibility = '1.8'
 publishing {
     publications {
         maven(MavenPublication) {
-            groupId = 'com.kerno'
+            groupId = 'com.kerno.kernobase'
             artifactId = 'kerno-base'
             version = '0.0.1-SNAPSHOT'
 
