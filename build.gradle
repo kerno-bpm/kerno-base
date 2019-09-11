@@ -17,7 +17,6 @@ buildscript {
 plugins {
     id 'org.springframework.boot' version '2.1.8.RELEASE'
     id 'java'
-    id 'java-gradle-plugin'
     id 'maven-publish'
 }
 
@@ -27,15 +26,17 @@ group = 'com.kerno'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
-gradlePlugin {
-    plugins {
-        create("kerno-base") {
-            id = "com.github.kerno.kernobase"
-            implementationClass = "com.kerno.kernobase"
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'com.kerno'
+            artifactId = 'kerno-base'
+            version = '0.0.1-SNAPSHOT'
+
+            from components.java
         }
     }
 }
-
 allprojects {
     repositories {
         maven { url "http://repo1.maven.org/maven2/" }
