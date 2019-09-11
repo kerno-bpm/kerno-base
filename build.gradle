@@ -26,14 +26,13 @@ group = 'com.kerno'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
-publishing {
-    publications {
-        maven(MavenPublication) {
-            groupId = 'com.kerno.kernobase'
-            artifactId = 'kerno-base'
-            version = '0.0.1-SNAPSHOT'
-
-            from components.java
+subprojects {
+    publishing {
+        publications {
+            mavenJava(MavenPublication) {
+                from components.java
+                artifactId = jar.archiveBaseName
+            }
         }
     }
 }
