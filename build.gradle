@@ -37,6 +37,20 @@ ext {
     set('jjwtVersion', '0.9.1')
 }
 
+publishing {
+    publications {
+        myLibrary(MavenPublication) {
+            from components.java
+        }
+    }
+
+    repositories {
+        maven {
+            name = 'kerno-base'
+            url = "file://${buildDir}/kerno-base"
+        }
+    }
+}
 
 dependencies {
     compileOnly 'org.springframework.boot:spring-boot-starter-data-jpa'
