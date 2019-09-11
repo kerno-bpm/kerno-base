@@ -17,6 +17,7 @@ buildscript {
 plugins {
     id 'org.springframework.boot' version '2.1.8.RELEASE'
     id 'java'
+    id 'java-gradle-plugin'
     id 'maven-publish'
 }
 
@@ -25,6 +26,15 @@ apply plugin: 'io.spring.dependency-management'
 group = 'com.kerno'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
+
+gradlePlugin {
+    plugins {
+        create("kerno-base") {
+            id = "com.github.kerno.kernobase"
+            implementationClass = "com.kerno.kernobase"
+        }
+    }
+}
 
 allprojects {
     repositories {
@@ -37,20 +47,6 @@ ext {
     set('jjwtVersion', '0.9.1')
 }
 
-publishing {
-    publications {
-        myLibrary(MavenPublication) {
-            from components.java
-        }
-    }
-
-    repositories {
-        maven {
-            name = 'kerno-base'
-            url = "file://${buildDir}/kerno-base"
-        }
-    }
-}
 
 dependencies {
     compileOnly 'org.springframework.boot:spring-boot-starter-data-jpa'
