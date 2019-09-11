@@ -19,7 +19,7 @@ plugins {
     id 'java'
     id 'maven-publish'
 }
-apply plugin: 'maven'
+
 apply plugin: 'io.spring.dependency-management'
 
 group = 'com.kerno'
@@ -37,16 +37,7 @@ ext {
     set('jjwtVersion', '0.9.1')
 }
 
-publishing {
-    publications {
-        maven(MavenPublication) {
-            groupId = 'com.kerno'
-            artifactId = 'kerno-base'
-            version = '1.1'
-            from components.java
-        }
-    }
-}
+
 dependencies {
     compileOnly 'org.springframework.boot:spring-boot-starter-data-jpa'
     compileOnly 'org.springframework.boot:spring-boot-starter-web'
